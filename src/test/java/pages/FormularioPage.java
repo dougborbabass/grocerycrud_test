@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.concurrent.TimeUnit;
+
 public class FormularioPage extends BasePage {
 
     public FormularioPage(WebDriver navegador) {
@@ -31,10 +33,14 @@ public class FormularioPage extends BasePage {
         return this;
     }
 
-    public void clicarSalvar(){
+    public FormularioPage clicarSalvar(){
         navegador.findElement(By.id("form-button-save")).click();
+        return this;
     }
-    
+
+    public String capturarMensagemSucesso(){
+        return mWait(navegador.findElement(By.xpath("//*[@id=\"report-success\"]/p"))).getText();
+    }
 
     private void digitarNome(String nome) {
         navegador.findElement(By.id("field-customerName")).sendKeys(nome);

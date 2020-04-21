@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import pages.InicialPage;
 import suporte.WebSetup;
 
-import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.assertTrue;
 
 public class ResolveDesafioTest {
 
@@ -20,13 +20,7 @@ public class ResolveDesafioTest {
 
     @Test
     public void deveResolverDesafio() {
-
-        // Mudar o valor da combo Select Version através do id "switch-version-select"
-        // Clicar no botão add customer //a[@href ="/demo/bootstrap_theme_v4/add"]
-        // Preencher os campos do formulário
-        // Clicar no botão save através do id "form-button-save"
-
-        new InicialPage(navegador)
+        String mensagemValidacao = new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
                 .preencheCadastro(
@@ -42,17 +36,13 @@ public class ResolveDesafioTest {
                         "Brasil",
                         "Fixter",
                         200)
-                .clicarSalvar();
-
-
-
-        // Validar a mensagem "Your data has been successfully stored into the database." //*[@id="report-success"]/p/text()
-
-        // Fechar o browser web
+                .clicarSalvar()
+                .capturarMensagemSucesso();
+        assertTrue(mensagemValidacao.contains("Your data has been successfully stored into the database."));
     }
 
     @After
     public void tearDown() {
-//        navegador.quit();
+        navegador.quit();
     }
 }

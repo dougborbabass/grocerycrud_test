@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import pages.InicialPage;
 import suporte.WebSetup;
 
 public class ResolveDesafioTest {
@@ -19,8 +20,11 @@ public class ResolveDesafioTest {
     public void deveResolverDesafio(){
 
         // Mudar o valor da combo Select Version através do id "switch-version-select"
-
         // Clicar no botão add customer //a[@href ="/demo/bootstrap_theme_v4/add"]
+
+        new InicialPage(navegador)
+                .mudarComboSelectVersion("Bootstrap V4 Theme")
+                .clicarAddCustomer();
 
         // Preencher os campos do formulário
 
@@ -33,6 +37,6 @@ public class ResolveDesafioTest {
 
     @After
     public void tearDown() {
-        navegador.quit();
+//        navegador.quit();
     }
 }

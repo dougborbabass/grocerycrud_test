@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import pages.InicialPage;
 import suporte.WebSetup;
 
+import java.util.concurrent.TimeUnit;
+
 public class ResolveDesafioTest {
 
     private WebDriver navegador;
@@ -24,7 +26,10 @@ public class ResolveDesafioTest {
 
         new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
-                .clicarAddCustomer();
+                .clicarAddCustomer()
+                .selecionarCompoEmpregador("Bow");
+
+
 
         // Preencher os campos do formulário
 

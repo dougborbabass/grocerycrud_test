@@ -19,21 +19,32 @@ public class ResolveDesafioTest {
     }
 
     @Test
-    public void deveResolverDesafio(){
+    public void deveResolverDesafio() {
 
         // Mudar o valor da combo Select Version através do id "switch-version-select"
         // Clicar no botão add customer //a[@href ="/demo/bootstrap_theme_v4/add"]
+        // Preencher os campos do formulário
+        // Clicar no botão save através do id "form-button-save"
 
         new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
-                .selecionarCompoEmpregador("Bow");
+                .preencheCadastro(
+                        "Teste Sicredi",
+                        "Teste",
+                        "Douglas Borba",
+                        "51 9999-9999",
+                        "Av Assis Brasil, 3970",
+                        "Torre D",
+                        "Porto Alegre",
+                        "RS",
+                        " 91000-000",
+                        "Brasil",
+                        "Fixter",
+                        200)
+                .clicarSalvar();
 
 
-
-        // Preencher os campos do formulário
-
-        // Clicar no botão save através do id "form-button-save"
 
         // Validar a mensagem "Your data has been successfully stored into the database." //*[@id="report-success"]/p/text()
 

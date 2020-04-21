@@ -21,10 +21,9 @@ public class InicialPage extends BasePage {
 
     public FormularioPage clicarAddCustomer(){
         WebElement btnAddCustomer = navegador.findElement(By.xpath("//a[@href =\"/demo/bootstrap_theme_v4/add\"]"));
-        WebDriverWait wait = new WebDriverWait(navegador, 10);
-        wait.until(ExpectedConditions.visibilityOf(btnAddCustomer));
 
-        btnAddCustomer.click();
+        mWait(btnAddCustomer).click();
+
         return new FormularioPage(navegador);
     }
 }

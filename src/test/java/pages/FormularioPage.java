@@ -69,17 +69,12 @@ public class FormularioPage extends BasePage{
     }
 
     public FormularioPage selecionarCompoEmpregador(String empregador){
-        navegador.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]")).click();
+        WebElement listaEmpregadores = navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]"));
+        mWait(listaEmpregadores).click();
 
         navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/div/input")).sendKeys(empregador);
-        navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/div/input")).sendKeys(Keys.ARROW_DOWN);
-        navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/div/input")).sendKeys(Keys.ENTER);
-        
-
-        String s = "";
-
+        new Actions(navegador).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
 
         return this;
     }

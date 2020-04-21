@@ -16,7 +16,7 @@ public class BasePage {
     }
 
     public WebElement mWait(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(navegador, 10);
+        WebDriverWait wait = new WebDriverWait(navegador, 15);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 

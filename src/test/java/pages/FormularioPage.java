@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.concurrent.TimeUnit;
-
 public class FormularioPage extends BasePage {
 
     public FormularioPage(WebDriver navegador) {
@@ -33,16 +31,16 @@ public class FormularioPage extends BasePage {
         return this;
     }
 
-    public FormularioPage clicarSalvar(){
+    public FormularioPage clicarSalvar() {
         navegador.findElement(By.id("form-button-save")).click();
         return this;
     }
 
-    public String capturarMensagemSucesso(){
+    public String capturarMensagemSucesso() {
         return mWait(navegador.findElement(By.xpath("//*[@id=\"report-success\"]/p"))).getText();
     }
 
-    public InicialPage clicarGoBack(){
+    public InicialPage clicarGoBack() {
         navegador.findElement(By.id("save-and-go-back-button")).click();
         return new InicialPage(navegador);
     }
@@ -97,7 +95,7 @@ public class FormularioPage extends BasePage {
 
     }
 
-    private void digitarLimiteCredito(int limite){
+    private void digitarLimiteCredito(int limite) {
         navegador.findElement(By.id("field-creditLimit")).sendKeys(Integer.toString(limite));
     }
 }

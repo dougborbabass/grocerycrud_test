@@ -12,10 +12,10 @@ public class Screenshot {
 
     public static String PATH_OUTPUT = "C:\\Users\\douglas.borba\\Desktop\\prova_testes\\prova_sicredi\\Teste Reporte\\";
 
-    public static void tirarScreenShot(WebDriver navegador, String testName){
+    public static void tirarScreenShot(WebDriver navegador, String testName) {
         File screenshot = ((TakesScreenshot) navegador).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(screenshot, new File( PATH_OUTPUT
+            FileUtils.copyFile(screenshot, new File(PATH_OUTPUT
                     + GetTimestamp.dataHoraParaArquivo()
                     + testName.split("\\{")[0]
                     + ".png"));

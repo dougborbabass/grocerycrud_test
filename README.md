@@ -2,6 +2,8 @@
 
 Este repositório tem por objetivo entregar a prova técnica proposta para QA.
 
+O projeto realizado faz uso do padrão Data Driven Testing, permitindo que os parâmetros de testes sejam inseridos via arquivo .csv, também conta com um diretório para test report com screenshot dos testes.
+
 ## Dependências
 
 Dependências usadas para realização do projeto.
@@ -28,4 +30,20 @@ Dependências usadas para realização do projeto.
 ```
 
 ## Observações
-O projeto realizado faz uso do padrão Data Driven Testing, permitindo que os parâmetros de testes sejam inseridos via arquivo .csv, também conta com um diretório para test report com screenshot dos testes.
+
+Ambas alterações seram feitas no pacote "suporte"
+
+1. Alterar o caminho para o diretório do chrome driver na Classe WebSetup.java.
+O Caminho atual pode ser visto no examplo abaixo:
+
+ ```java
+	 System.setProperty("webdriver.chrome.driver",
+                "C:\\Selenium\\drivers\\chrome\\x32_80.0.3987.106\\chromedriver.exe");
+```
+
+2. Alterar o caminho para o diretório dos screenshots de evidências na Classe Screenshot.java
+O Caminho atual pode ser visto no examplo abaixo:
+
+ ```java
+	 public static String PATH_OUTPUT = "C:\\Users\\douglas.borba\\Desktop\\prova_testes\\prova_sicredi\\Teste Reporte\\";
+```

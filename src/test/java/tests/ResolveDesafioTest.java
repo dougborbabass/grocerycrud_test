@@ -45,7 +45,8 @@ public class ResolveDesafioTest {
                                     @Param(name = "pais")String pais,
                                     @Param(name = "empregador")String empregador,
                                     @Param(name = "limite")int limite,
-                                    @Param(name = "mensagemSucesso")String mensagemSucesso) {
+                                    @Param(name = "mensagemSucesso")String mensagemSucesso,
+                                    @Param(name = "msgDeleteSucesso")String msgDeleteSucesso) {
         String msgValidacaoDesafioUm = new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
@@ -76,13 +77,16 @@ public class ResolveDesafioTest {
                 .clicarDelete()
                 .confirmarDelete()
                 .capturarMensagemSucesso();
+        
+        Screenshot.tirarScreenShot(navegador, testName.getMethodName());
 
         assertTrue(msgValidacaoDesafioUm.contains(mensagemSucesso));
+        assertTrue(msgValidacaoDesafioDois.contains(msgDeleteSucesso));
 
     }
 
     @After
     public void tearDown() {
-//        navegador.quit();
+        navegador.quit();
     }
 }

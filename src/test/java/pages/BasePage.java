@@ -18,9 +18,9 @@ public class BasePage {
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public Boolean mWaitHide(WebElement element) {
+    public void mWaitHide(WebElement element) {
         WebDriverWait wait = new WebDriverWait(navegador, 15);
-        return wait.until(ExpectedConditions.invisibilityOf(element));
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
 }

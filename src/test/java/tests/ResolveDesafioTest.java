@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import pages.FormularioPage;
 import pages.InicialPage;
-import suporte.GetTimestamp;
 import suporte.Screenshot;
 import suporte.WebSetup;
 
@@ -33,20 +32,20 @@ public class ResolveDesafioTest {
     }
 
     @Test
-    public void deveResolverDesafio(@Param(name = "nome")String nome,
-                                    @Param(name = "ultimoNome")String ultimoNome,
-                                    @Param(name = "contatoNome")String contatoNome,
-                                    @Param(name = "telefone")String telefone,
-                                    @Param(name = "enderecoL1")String enderecoL1,
-                                    @Param(name = "enderecoL2")String enderecoL2,
-                                    @Param(name = "cidade")String cidade,
-                                    @Param(name = "estado")String estado,
-                                    @Param(name = "cep")String cep,
-                                    @Param(name = "pais")String pais,
-                                    @Param(name = "empregador")String empregador,
-                                    @Param(name = "limite")int limite,
-                                    @Param(name = "mensagemSucesso")String mensagemSucesso,
-                                    @Param(name = "msgDeleteSucesso")String msgDeleteSucesso) {
+    public void deveResolverDesafio(@Param(name = "nome") String nome,
+                                    @Param(name = "ultimoNome") String ultimoNome,
+                                    @Param(name = "contatoNome") String contatoNome,
+                                    @Param(name = "telefone") String telefone,
+                                    @Param(name = "enderecoL1") String enderecoL1,
+                                    @Param(name = "enderecoL2") String enderecoL2,
+                                    @Param(name = "cidade") String cidade,
+                                    @Param(name = "estado") String estado,
+                                    @Param(name = "cep") String cep,
+                                    @Param(name = "pais") String pais,
+                                    @Param(name = "empregador") String empregador,
+                                    @Param(name = "limite") int limite,
+                                    @Param(name = "mensagemSucesso") String mensagemSucesso,
+                                    @Param(name = "msgDeleteSucesso") String msgDeleteSucesso) {
         String msgValidacaoDesafioUm = new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
@@ -77,7 +76,7 @@ public class ResolveDesafioTest {
                 .clicarDelete()
                 .confirmarDelete()
                 .capturarMensagemSucesso();
-        
+
         Screenshot.tirarScreenShot(navegador, testName.getMethodName());
 
         assertTrue(msgValidacaoDesafioUm.contains(mensagemSucesso));

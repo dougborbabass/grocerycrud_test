@@ -5,10 +5,14 @@ import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import pages.InicialPage;
+import suporte.GetTimestamp;
+import suporte.Screenshot;
 import suporte.WebSetup;
 
 import static org.junit.Assert.assertTrue;
@@ -18,6 +22,9 @@ import static org.junit.Assert.assertTrue;
 public class ResolveDesafioTest {
 
     private WebDriver navegador;
+
+    @Rule
+    public TestName testName = new TestName();
 
     @Before
     public void setup() {
@@ -57,6 +64,8 @@ public class ResolveDesafioTest {
                 .clicarSalvar()
                 .capturarMensagemSucesso();
         assertTrue(mensagemValidacao.contains(mensagemSucesso));
+        
+        Screenshot.tirarScreenShot(navegador, testName.getMethodName());
     }
 
     @After

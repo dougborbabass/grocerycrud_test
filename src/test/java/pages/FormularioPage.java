@@ -42,6 +42,11 @@ public class FormularioPage extends BasePage {
         return mWait(navegador.findElement(By.xpath("//*[@id=\"report-success\"]/p"))).getText();
     }
 
+    public InicialPage clicarGoBack(){
+        navegador.findElement(By.id("save-and-go-back-button")).click();
+        return new InicialPage(navegador);
+    }
+
     private void digitarNome(String nome) {
         navegador.findElement(By.id("field-customerName")).sendKeys(nome);
     }

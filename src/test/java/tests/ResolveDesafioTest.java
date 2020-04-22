@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import pages.FormularioPage;
 import pages.InicialPage;
 import suporte.GetTimestamp;
 import suporte.Screenshot;
@@ -45,7 +46,7 @@ public class ResolveDesafioTest {
                                     @Param(name = "empregador")String empregador,
                                     @Param(name = "limite")int limite,
                                     @Param(name = "mensagemSucesso")String mensagemSucesso) {
-        String mensagemValidacao = new InicialPage(navegador)
+        String msgValidacaoDesafioUm = new InicialPage(navegador)
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
                 .preencheCadastro(
@@ -63,9 +64,21 @@ public class ResolveDesafioTest {
                         limite)
                 .clicarSalvar()
                 .capturarMensagemSucesso();
-        assertTrue(mensagemValidacao.contains(mensagemSucesso));
-        
+
+
         Screenshot.tirarScreenShot(navegador, testName.getMethodName());
+
+        String msgValidacaoDesafioDois = new FormularioPage(navegador)
+                .clicarGoBack()
+                .digitarNomePesquisa(nome)
+                .aguardarMsgStored()
+                .clicarCheckBoxLinha()
+                .clicarDelete()
+                .confirmarDelete()
+                .capturarMensagemSucesso();
+
+        assertTrue(msgValidacaoDesafioUm.contains(mensagemSucesso));
+
     }
 
     @After

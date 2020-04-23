@@ -7,7 +7,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.support.FindBy;
 import pages.FormularioPage;
 import pages.InicialPage;
 import suporte.Screenshot;

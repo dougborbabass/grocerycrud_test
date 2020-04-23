@@ -22,6 +22,10 @@ local.properties
 .loadpath
 .recommenders
 
+### IntelliJ ###
+.DS_Store
+.idea
+
 # External tool builders
 .externalToolBuilders/
 

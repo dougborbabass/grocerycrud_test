@@ -23,10 +23,10 @@ local.properties
 .recommenders
 
 ### IntelliJ ###
+.idea/
 *.iml
 *.iws
 *.ipr
-.idea/
 
 ### Diretório de evidências ###
 Teste_Reporte/

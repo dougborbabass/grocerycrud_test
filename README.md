@@ -2,7 +2,14 @@
 
 Este repositório tem por objetivo entregar a prova técnica proposta para QA.
 
-O projeto realizado faz uso do padrão Data Driven Testing, permitindo que os parâmetros de testes sejam inseridos via arquivo .csv, também conta com um diretório para test report com screenshot dos testes.
+Pontos relevantes deste projeto:
+
+- Utilização do padrão Data Driven Testing permitindo que os parâmetros de testes sejam inseridos via arquivo .csv
+- Utilização do padrão PageObjects mantendo boas práticas
+- Utilização do padrão Page Factory:
+	- Facilitação na fluência de códgio
+	- Facilitação de manutenção e portabilidade para outras plataformas exemplo (Android, iOS)
+- Evidências de teste através de screenshots.
 
 ## Rodando os testes
 

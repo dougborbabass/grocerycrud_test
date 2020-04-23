@@ -26,6 +26,9 @@ local.properties
 .DS_Store
 .idea
 
+### Diretório de evidências ###
+Teste Reporte/
+
 # External tool builders
 .externalToolBuilders/
 

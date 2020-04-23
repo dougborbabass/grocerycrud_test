@@ -37,19 +37,18 @@ Dependências usadas para realização do projeto.
             <version>1.4.0</version>
 </dependency>
 
-        <dependency>
+<dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
-        </dependency>
+</dependency>
 
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-        <dependency>
+<dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
-        </dependency>
+</dependency>
 ```
 
 ## Observações

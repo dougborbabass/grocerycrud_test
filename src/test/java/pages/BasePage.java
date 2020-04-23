@@ -24,5 +24,4 @@ abstract class BasePage {
         WebDriverWait wait = new WebDriverWait(navegador, 15);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
-
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class Screenshot {
 
-    public static String PATH_OUTPUT = "C:\\Users\\douglas.borba\\Desktop\\prova_testes\\prova_sicredi\\Teste Reporte\\";
+    public static String PATH_OUTPUT = "C:\\Users\\douglas.borba\\Desktop\\prova_testes\\prova_sicredi\\Teste_Reporte\\";
 
     public static void tirarScreenShot(WebDriver navegador, String testName) {
         File screenshot = ((TakesScreenshot) navegador).getScreenshotAs(OutputType.FILE);

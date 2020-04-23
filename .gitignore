@@ -22,9 +22,14 @@ local.properties
 .loadpath
 .recommenders
 
-### IntelliJ
-.DS_Store
-.idea
+### IntelliJ ###
+.idea/
+*.iml
+*.iws
+*.ipr
+
+### Diretório de evidências ###
+Teste_Reporte/
 
 # External tool builders
 .externalToolBuilders/

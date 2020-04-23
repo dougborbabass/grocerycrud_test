@@ -3,33 +3,23 @@ package tests;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 import pages.FormularioPage;
 import pages.InicialPage;
 import suporte.Screenshot;
-import suporte.WebSetup;
 
 import static org.junit.Assert.assertTrue;
 
 @RunWith(DataDrivenTestRunner.class)
 @DataLoader(filePaths = "ResolveDesafioTest.csv")
-public class ResolveDesafioTest {
-
-    private WebDriver navegador;
+public class ResolveDesafioTest extends BaseTest {
 
     @Rule
     public TestName testName = new TestName();
-
-    @Before
-    public void setup() {
-        navegador = WebSetup.createChromeSetup();
-    }
 
     @Test
     public void deveResolverDesafio(@Param(name = "nome") String nome,
@@ -46,7 +36,7 @@ public class ResolveDesafioTest {
                                     @Param(name = "limite") int limite,
                                     @Param(name = "mensagemSucesso") String mensagemSucesso,
                                     @Param(name = "msgDeleteSucesso") String msgDeleteSucesso) {
-        String msgValidacaoDesafioUm = new InicialPage(navegador)
+        String msgValidacaoDesafioUm = new InicialPage(getNavegador())
                 .mudarComboSelectVersion("Bootstrap V4 Theme")
                 .clicarAddCustomer()
                 .preencheCadastro(
@@ -66,9 +56,9 @@ public class ResolveDesafioTest {
                 .capturarMensagemSucesso();
 
 
-        Screenshot.tirarScreenShot(navegador, testName.getMethodName());
+        Screenshot.tirarScreenShot(getNavegador(), testName.getMethodName());
 
-        String msgValidacaoDesafioDois = new FormularioPage(navegador)
+        String msgValidacaoDesafioDois = new FormularioPage(getNavegador())
                 .clicarGoBack()
                 .digitarNomePesquisa(nome)
                 .aguardarMsgStored()
@@ -77,15 +67,10 @@ public class ResolveDesafioTest {
                 .confirmarDelete()
                 .capturarMensagemSucesso();
 
-        Screenshot.tirarScreenShot(navegador, testName.getMethodName());
+        Screenshot.tirarScreenShot(getNavegador(), testName.getMethodName());
 
         assertTrue(msgValidacaoDesafioUm.contains(mensagemSucesso));
         assertTrue(msgValidacaoDesafioDois.contains(msgDeleteSucesso));
 
-    }
-
-    @After
-    public void tearDown() {
-        navegador.quit();
     }
 }

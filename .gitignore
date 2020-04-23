@@ -23,11 +23,13 @@ local.properties
 .recommenders
 
 ### IntelliJ ###
-.DS_Store
+*.iml
+*.iws
+*.ipr
 .idea/
 
 ### Diretório de evidências ###
-Teste Reporte/
+Teste_Reporte/
 
 # External tool builders
 .externalToolBuilders/

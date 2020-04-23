@@ -1,12 +1,47 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 
 public class FormularioPage extends BasePage {
+
+    @FindBy(id = "form-button-save")
+    WebElement btnSalvar;
+    @FindBy(xpath = "//*[@id=\"report-success\"]/p")
+    WebElement msgStatus;
+    @FindBy(id = "save-and-go-back-button")
+    WebElement btnGoBack;
+    @FindBy(id = "field-customerName")
+    WebElement campoNome;
+    @FindBy(id = "field-contactLastName")
+    WebElement campoUltimoNome;
+    @FindBy(id = "field-contactFirstName")
+    WebElement campoContatoNome;
+    @FindBy(id = "field-phone")
+    WebElement campoTelefone;
+    @FindBy(id = "field-addressLine1")
+    WebElement campoEnderecoL1;
+    @FindBy(id = "field-addressLine2")
+    WebElement campoEnderecoL2;
+    @FindBy(id = "field-city")
+    WebElement campoCidade;
+    @FindBy(id = "field-state")
+    WebElement campoEstado;
+    @FindBy(id = "field-postalCode")
+    WebElement campoCep;
+    @FindBy(id = "field-country")
+    WebElement campoPais;
+    @FindBy(id = "field-creditLimit")
+    WebElement campoLimite;
+    @FindBy(xpath = "//*[@id=\"field_salesRepEmployeeNumber_chosen\"]")
+    WebElement checkBoxEmpregador;
+    @FindBy(xpath = "//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/div/input")
+    WebElement campoCheckBoxEmpregador;
+
+
 
     public FormularioPage(WebDriver navegador) {
         super(navegador);
@@ -31,71 +66,69 @@ public class FormularioPage extends BasePage {
         return this;
     }
 
+
     public FormularioPage clicarSalvar() {
-        navegador.findElement(By.id("form-button-save")).click();
+        btnSalvar.click();
         return this;
     }
 
     public String capturarMensagemSucesso() {
-        return mWait(navegador.findElement(By.xpath("//*[@id=\"report-success\"]/p"))).getText();
+        return mWait(msgStatus).getText();
     }
 
     public InicialPage clicarGoBack() {
-        navegador.findElement(By.id("save-and-go-back-button")).click();
+        btnGoBack.click();
         return new InicialPage(navegador);
     }
 
     private void digitarNome(String nome) {
-        navegador.findElement(By.id("field-customerName")).sendKeys(nome);
+        campoNome.sendKeys(nome);
     }
 
     private void digitarUltimotNome(String utimoNome) {
-        navegador.findElement(By.id("field-contactLastName")).sendKeys(utimoNome);
+        campoUltimoNome.sendKeys(utimoNome);
     }
 
     private void digitarContatoPrimeiroNome(String contatoNome) {
-        navegador.findElement(By.id("field-contactFirstName")).sendKeys(contatoNome);
+        campoContatoNome.sendKeys(contatoNome);
     }
 
     private void digitarTelefone(String telefone) {
-        navegador.findElement(By.id("field-phone")).sendKeys(telefone);
+        campoTelefone.sendKeys(telefone);
     }
 
     private void digitarEnderecoL1(String endereco1) {
-        navegador.findElement(By.id("field-addressLine1")).sendKeys(endereco1);
+        campoEnderecoL1.sendKeys(endereco1);
     }
 
     private void digitarEnderecoL2(String endereco2) {
-        navegador.findElement(By.id("field-addressLine2")).sendKeys(endereco2);
+        campoEnderecoL2.sendKeys(endereco2);
     }
 
     private void digitarCidade(String cidade) {
-        navegador.findElement(By.id("field-city")).sendKeys(cidade);
+        campoCidade.sendKeys(cidade);
     }
 
     private void digitarEstado(String estado) {
-        navegador.findElement(By.id("field-state")).sendKeys(estado);
+        campoEstado.sendKeys(estado);
     }
 
     private void digitarCep(String cep) {
-        navegador.findElement(By.id("field-postalCode")).sendKeys(cep);
+        campoCep.sendKeys(cep);
     }
 
     private void digitarPais(String pais) {
-        navegador.findElement(By.id("field-country")).sendKeys(pais);
+        campoPais.sendKeys(pais);
     }
 
     private void selecionarCompoEmpregador(String empregador) {
-
-        WebElement listaEmpregadores = navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]"));
-        mWait(listaEmpregadores).click();
-
-        navegador.findElement(By.xpath("//*[@id=\"field_salesRepEmployeeNumber_chosen\"]/div/div/input")).sendKeys(empregador);
+        mWait(checkBoxEmpregador).click();
+        campoCheckBoxEmpregador.sendKeys(empregador);
         new Actions(navegador).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
 
     }
 
     private void digitarLimiteCredito(int limite) {
-        navegador.findElement(By.id("field-creditLimit")).sendKeys(Integer.toString(limite));
+        campoLimite.sendKeys(Integer.toString(limite));
     }
 }

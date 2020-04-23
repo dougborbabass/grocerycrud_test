@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,6 +12,7 @@ abstract class BasePage {
 
     public BasePage(WebDriver navegador) {
         this.navegador = navegador;
+        PageFactory.initElements(navegador, this);
     }
 
     public WebElement mWait(WebElement element) {

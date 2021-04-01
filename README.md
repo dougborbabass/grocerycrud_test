@@ -1,6 +1,5 @@
-# Prova técnica de automação de teste
+# Testes com fins de estudo baseado no grocerycrud
 
-Este repositório tem por objetivo entregar a prova técnica proposta para QA.
 
 Pontos relevantes deste projeto:
 
@@ -10,6 +9,7 @@ Pontos relevantes deste projeto:
 	- Facilitação na fluência de códgio
 	- Facilitação de manutenção e portabilidade para outras plataformas exemplo (Android, iOS)
 - Evidências de teste através de screenshots.
+- Utilização de dependência para gerenciamento de webdriver
 
 ## Rodando os testes
 
